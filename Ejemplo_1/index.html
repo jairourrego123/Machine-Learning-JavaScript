@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <!-- Libreria para Presentar imagenes  -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- importar archivo  de funciones -->
+    <script src="./Scripts/Grafica.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Graficos</title>
+</head>
+<body>
+    <p>Ingrese expresion matematica</p>
+    <p><input id="ecuacion" type="text" value="x ** 2"></p>
+    <p>
+        <button onclick="graficar('scatter')">scatter</button>
+        <button onclick="graficar('lines')">Draw Line</button>
+    </p>
+    <div id="presentar_gra" style="width:100%;max-width:700px"></div>
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./matematicas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tensor</title>
+</head>
+<body>
+    <script>
+         // tf.tensor (values, shape?, dtype?)  shape = dimenciones dtype = tipo de dato int, float 
+        tf.tensor([1, 2, 3, 4]).print();
+                                   //N.fila,N.columnas
+        const tens=tf.tensor([1, 2, 3, 4,5,6], [3, 2]); // shape agrupara los valores en matriz de 2x2,por ende shape = 2
+        tf.scalar(3.14).print(); // igual que e tensor pero solo cuando no es un arreglo sino un valor 
+        tens.data().then((result) => {}) // devuelve todos los datos del tensor , en un array con n espacios
+
+        // cambiar un tensor , hacerlo variable
+        const x = tf.variable(tf.tensor([1, 2, 3]));
+        x.print()
+        x.assign(tf.tensor([4, 5, 6]));
+        x.print();
+
+        // multiplicacion de tensores
+
+        const a = tf.tensor2d([[1,2,-3],[4,0,-2]])
+        const b = tf.tensor2d([[3,1],[2,4],[-1,5]])
+        tf.matMul(a,b).print();
+    </script>
+    
+</body>
+</html>
