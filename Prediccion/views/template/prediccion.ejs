@@ -1,0 +1,57 @@
+<%- include("rotulo")%>
+<body>
+  
+  <form action="/" method="get">
+    <input type="submit" value="Cargar Base" class="btn btn-outline-dark">
+  </form>
+  <h1 style="text-align: center; margin: 10px; ">USO DEL MODELO 
+    
+  </h1>
+  
+  
+  <table class="table table-striped" id="tabla" >
+      <caption >Prediccion de Datos Jairo Urrego & Felipe Villamizar</caption>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">X</th>
+          <th scope="col">Y</th>
+          <th scope="col">Ys</th>
+          <th scope="col">Er</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+  <% for (var i =0; i < fila.length;  i++ ) { 
+          
+          
+
+      %>
+      
+      
+          
+         
+          <tr>
+              <th scope="row"><%=i%></th>
+              <td><%=fila[i][0]%></td>
+              <td><%=fila[i][1]%></td>
+              <td><%=fila[i][2]%></td>
+              <td><%=fila[i][3]%></td>
+              
+             
+            </tr>
+      
+          
+      
+
+          
+        
+          
+      <% } %>
+          
+        
+      </tbody>
+    </table>
+
+
+  </body>

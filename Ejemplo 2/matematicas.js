@@ -1,7 +1,7 @@
 //Instale la librería con npm install @tensorflow/tfjs
 
 //Instale la librería con npm install @tensorflow/tfjs
-const tf = require('@tensorflow/tfjs');
+
 
 //Escalar, arreglos
 var escalar=1;

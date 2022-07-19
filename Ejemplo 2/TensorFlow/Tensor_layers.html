@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layers</title>
+</head>
+<body>
+    <script>
+        const modelo = tf.sequential(); // creacion del modelo 
+        // capas
+        const oculta = tf.layers.dense({ //  una capa cpon todas las conexiones activadas
+                units:4,  // 4 nodos
+                inputShape:[2], // nodos de entrada
+                activation:'sigmoid'
+        }); 
+
+        modelo.add(oculta) // añadir al modelo la capa oculta
+
+        const salida = tf.layers.dense({
+            units: 1, // una sola salida un solo resultado
+            activation:'sigmoid'
+        })
+
+        modelo.add(salida); // metemos en el modelo la capa de salida
+
+        // optimizador aydua a mejorar el desempeño de nuestro modelo
+        // minimiza la funcion de perdida 
+        const sgdOpciones =tf.train.sgd(0.1)  // stocastica gradiente decendiente 
+        
+        modelo.compile({
+            optimizer:sgdOpciones,
+            loss: tf.losses.meanSquaredError // funcion de perdida
+        })
+
+        const  x1= tf.tensor2d([ // datos que conocemos 
+            [0,0],
+            [0.2,0.2],
+            [0.4,0.4],
+        ])
+         // y= 2x +1
+
+        const x2 = tf.tensor2d([ // valores que no conocemos 
+            [0.1], //9
+            [0.3], //11
+            [6] // 13
+         
+        ])
+
+        // funcion que va hacer los calculos 
+
+        async function intento(){
+            for (let i = 0; i < 1; i++) {
+                const respuesta = await modelo.fit(x1,x2,{  // hace los calculos con las configuraciones del modelos descritas arriba
+                    shuffle:true, // coge los datos y hace una especie de ramdom
+                    epochs:100 // la cantidad de repeticiones                     
+                }) 
+                
+                
+            }
+        }
+
+        intento().then(()=>{
+            const salida=modelo.predict(x1).dataSync();
+          
+
+            
+
+        });
+    </script>
+    
+</body>
+</html>
